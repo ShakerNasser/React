@@ -33,7 +33,7 @@ function App() {
       <input ref={inputRef} defaultValue={"Pikachu"}></input>
       <button onClick={() => handleClick()}> Get pokemon</button>
       {pokemonData.map((pokemon: any) => (
-        <div>
+        <div key={pokemon.id}>
           <img src={pokemon.sprites.front_default} />
           <p> Name: {pokemon.name}</p>
         </div>
