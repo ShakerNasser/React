@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [pokemon, setPokemon] = useState("Pikachu");
+  const [pokemon, setPokemon] = useState("");
   const [pokemonData, setPokemonData] = useState([]);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const getPokemon = async () => {
+  const getPokemon = async (pokemon: string) => {
     try {
       const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
       const response = await fetch(url);
@@ -21,16 +21,12 @@ function App() {
   };
 
   const handleClick = () => {
-    setPokemon(inputRef.current!.value);
+    getPokemon(inputRef.current!.value);
   };
-
-  useEffect(() => {
-    getPokemon();
-  }, [pokemon]);
 
   return (
     <>
-      <input ref={inputRef} defaultValue={"Pikachu"}></input>
+      <input ref={inputRef} defaultValue={""}></input>
       <button onClick={() => handleClick()}> Get pokemon</button>
       {pokemonData.map((pokemon: any) => (
         <div key={pokemon.id}>
