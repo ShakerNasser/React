@@ -12,7 +12,7 @@ function App() {
       const response = await fetch(url);
       const result = await response.json();
       const toArray: any = [];
-      toArray.push(result);
+      toArray.push(result, ...pokemonData);
       console.log(result);
       setPokemonData(toArray);
     } catch (error) {
