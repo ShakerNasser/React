@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [pokemon, setPokemon] = useState("pokemon");
+  const [pokemon, setPokemon] = useState("Pikachu");
   const [pokemonData, setPokemonData] = useState([]);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -30,8 +30,7 @@ function App() {
 
   return (
     <>
-      <input ref={inputRef} defaultValue={""}>
-      </input>
+      <input ref={inputRef} defaultValue={"Pikachu"}></input>
       <button onClick={() => handleClick()}> Get pokemon</button>
       {pokemonData.map((pokemon: any) => (
         <div>
